@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transparent Login Form</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url("https://t4.ftcdn.net/jpg/04/89/40/41/360_F_489404131_n94lHm5HAwlQObFpzefMXQuzHvpqSL1l.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: color;
+        background-color: #00000080;
+      }
+
+      /* Outer Container */
+      .outer-container {
+        width: 460px;
+        padding: 20px;
+        border-radius: 12px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(30px);
+      }
+
+      /* Inner Container */
+      .inner-container {
+        width: 100%;
+        background: transparent;
+        color: #fff;
+        padding: 40px 30px;
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(15px);
+      }
+
+      .inner-container h1 {
+        font-size: 34px;
+        text-align: center;
+      }
+
+      /* Logo Styling */
+      .logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+
+      .logo img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: white;
+        padding: 5px;
+      }
+
+      .input-box {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+      }
+
+      .input-box input {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        outline: none;
+        border-radius: 45px;
+        font-size: 16px;
+        color: #fff;
+        padding: 20px 45px 20px 20px;
+      }
+
+      .input-box input::placeholder {
+        color: #fff;
+      }
+
+      .input-box i {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+      }
+
+      .remember {
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        margin: -15px 0 15px;
+      }
+
+      .remember label input {
+        accent-color: #fff;
+        margin-right: 5px;
+      }
+
+      .remember a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .remember a:hover {
+        color: #ededed;
+      }
+
+      .btn {
+        width: 100%;
+        height: 45px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        background: #fff;
+        border: none;
+        outline: none;
+        border-radius: 45px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+      .btn a {
+        text-decoration: none;
+      }
+
+      .register {
+        font-size: 15px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .register a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .register a:hover {
+        color: #ededed;
+      }
+    </style>
+
+    <script type="module" src="fire.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Outer Container -->
+    <div class="outer-container">
+      <!-- Inner Container -->
+      <div class="inner-container">
+        <!-- Logo Image -->
+        <div class="logo">
+          <img src="assets/images/logo.jpg" alt="Logo" />
+        </div>
+
+        <form id="login-form">
+          <h1>Login</h1>
+          <div class="input-box">
+            <input type="text" id="address" placeholder="Username" required />
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+
+          <div class="remember">
+            <label><input type="checkbox" />Remember Me</label>
+            <a href="#">Forget Password</a></br>
+          </div>
+          <button type="submit" class="btn" id="login-btn">Login</button>
+          </br></br>
+          <button class="btn">
+            Don't have an account?<a href="register.html">Register</a>
+          </button>
+        </form>
+      </div>
+    </div>
+    <script type="module">
+      import { validateLogin } from "./fire.js"; 
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("login-form");
+
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const address = document.getElementById("address").value.trim();
+          const password = document.getElementById("password").value.trim();
+
+          let errorMsg = "";
+
+          if (address === "") {
+            errorMsg += "Aadhar Number is required.\n";
+          }
+          if (password === "") {
+            errorMsg += "Password is required.\n";
+          }
+
+          if (errorMsg === "") {
+            validateLogin(
+              address,
+              password,
+              () => {
+                // Success callback
+                alert("Login successful!");
+                window.location.href = "main.html";
+                loginForm.reset();
+              },
+              (err) => {
+                // Error callback
+                alert(err);
+              }
+            );
+          } else {
+            alert(errorMsg);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

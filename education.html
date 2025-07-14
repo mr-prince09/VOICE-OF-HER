@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpowerHer: Education & Opportunities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 118, 117, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(255, 177, 153, 0.3) 0%, transparent 50%);
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #48cae4);
+            background-size: 300% 300%;
+            animation: gradientShift 8s ease infinite;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            animation: slideInDown 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        nav a {
+            margin: 0 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            border-radius: 50px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        nav a:hover::before {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        nav a:hover {
+            transform: translateY(-3px);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(60px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            border-radius: 2px;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .opportunity {
+            border: none;
+            padding: 30px;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(254, 202, 87, 0.1));
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .opportunity::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .opportunity:hover::before {
+            left: 100%;
+        }
+
+        .opportunity:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .opportunity h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .opportunity p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .opportunity a {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .opportunity a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, #5a6fd8, #6a42a0);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        ul li:hover {
+            padding-left: 20px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            border-bottom: 1px solid transparent;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        ul li strong {
+            font-size: 1.2rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        ul li a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            margin: 0 5px;
+        }
+
+        ul li a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 1rem;
+            }
+
+            section {
+                margin: 20px;
+                padding: 40px 25px;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        body {
+            animation: pageLoad 1s ease-out;
+        }
+
+        @keyframes pageLoad {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EmpowerHer: Education & Opportunities</h1>
+        <p>Your Gateway to Growth and Success</p>
+    </header>
+
+    <nav>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills & Mentorship</a>
+        <a href="#jobs">Part-Time Jobs</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <section id="education">
+        <h2>Education Resources</h2>
+        <p>Access a curated list of educational resources to support your academic journey.</p>
+        <ul>
+            <li><strong>Online Courses:</strong> <a href="https://www.coursera.org" target="_blank">Coursera</a>, <a href="https://www.edx.org" target="_blank">edX</a>, <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>, and more.</li>
+            <li><strong>Scholarship Information:</strong> <a href="https://www.scholarships.com" target="_blank">Scholarships.com</a>, <a href="https://www.fastweb.com" target="_blank">Fastweb</a>.</li>
+            <li><strong>Academic Support:</strong> <a href="https://www.chegg.com" target="_blank">Chegg</a>, <a href="https://www.tutor.com" target="_blank">Tutor.com</a>.</li>
+            <li><strong>Higher Education Guidance:</strong> <a href="https://www.commonapp.org" target="_blank">Common App</a>, <a href="https://www.collegeboard.org" target="_blank">College Board</a>.</li>
+            <li><strong>Digital Libraries:</strong> <a href="https://www.jstor.org" target="_blank">JSTOR</a>, <a href="https://www.projectgutenberg.org" target="_blank">Project Gutenberg</a>.</li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Mentorship</h2>
+        <p>Develop valuable skills and connect with mentors to guide your career.</p>
+        <ul>
+            <li><strong>Skill-Building Workshops:</strong> <a href="https://www.udemy.com" target="_blank">Udemy</a>, <a href="https://www.skillshare.com" target="_blank">Skillshare</a>.</li>
+            <li><strong>Mentorship Programs:</strong> <a href="https://www.mentoring.org" target="_blank">Mentoring.org</a>.</li>
+            <li><strong>Networking Events:</strong> <a href="https://www.eventbrite.com" target="_blank">Eventbrite</a>.</li>
+            <li><strong>Career Counseling:</strong> <a href="https://www.careeronestop.org" target="_blank">CareerOneStop</a>.</li>
+            <li><strong>Soft Skills Training:</strong> <a href="https://www.toastmasters.org" target="_blank">Toastmasters</a>.</li>
+        </ul>
+    </section>
+
+    <section id="jobs">
+        <h2>Part-Time Job Opportunities</h2>
+        <p>Find flexible part-time jobs to gain experience and earn income.</p>
+        <div class="opportunity">
+            <h3>Virtual Assistant</h3>
+            <p>Assist with administrative tasks remotely.</p>
+            <a href="https://www.upwork.com" target="_blank">Apply Now</a>
+        </div>
+        <div class="opportunity">
+            <h3>Content Writer</h3>
+            <p>Create engaging content for websites and blogs.</p>
+            <a href="https://www.freelancer.com" target="_blank">Apply Now</a>
+        </div>
+        <div class="opportunity">
+            <h3>Social Media Manager</h3>
+            <p>Manage social media accounts for small businesses.</p>
+            <a href="https://www.fiverr.com" target="_blank">Apply Now</a>
+        </div>
+        <div class="opportunity">
+            <h3>Online Tutor</h3>
+            <p>Provide tutoring services in various subjects.</p>
+            <a href="https://www.tutor.com" target="_blank">Apply Now</a>
+        </div>
+        <div class="opportunity">
+            <h3>Graphic Designer</h3>
+            <p>Create visual content for marketing materials.</p>
+            <a href="https://www.behance.net" target="_blank">Apply Now</a>
+        </div>
+        <p>More opportunities are added regularly.</p>
+    </section>
+
+    <section id="resources">
+        <h2>Additional Resources</h2>
+        <p>Find additional support and information.</p>
+        <ul>
+            <li><strong>Financial Literacy:</strong> <a href="https://www.investopedia.com" target="_blank">Investopedia</a>.</li>
+            <li><strong>Health and Wellness:</strong> <a href="https://www.mind.org.uk" target="_blank">Mind</a>, <a href="https://www.who.int" target="_blank">WHO</a>.</li>
+            <li><strong>Community Support:</strong> <a href="https://www.unwomen.org" target="_blank">UN Women</a>.</li>
+            <li><strong>Legal Aid:</strong> <a href="https://www.lsc.gov" target="_blank">Legal Services Corporation</a>.</li>
+            <li><strong>Tech Resources:</strong> <a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp</a>, <a href="https://www.codecademy.com" target="_blank">Codecademy</a>.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 EmpowerHer. All rights reserved.</p>
+    </footer>
+</body>
+</html>

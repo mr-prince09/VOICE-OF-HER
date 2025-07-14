@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/iwd.css">
+    <title>EMPOWER HER</title>
+   
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo"><img src="assets/images/logo.jpg" alt=""></div>
+                    <h1 class="site-title">EMPOWER HER</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">Empowering Women, Transforming Lives</h1>
+                <p class="hero-subtitle">Your voice matters. Your dreams are valid. Your strength is unlimited. Join us in creating a world where every woman can thrive.</p>
+            </section>
+
+            <!-- Main Empowerment Grid -->
+            <div class="empowerment-grid">
+                <div class="empowerment-card sos-card" id="sos-button">
+                    <div class="card-icon">🚨</div>
+                    <h3 class="card-title">Emergency SOS</h3>
+                    <p class="card-description">Immediate help and safety resources when you need them most. Your safety is our priority.</p>
+                </div>
+
+                <div class="empowerment-card economic-card">
+                    <div class="card-icon">💼</div>
+                    <h3 class="card-title">Economic Empowerment</h3>
+                    <p class="card-description">Financial independence through entrepreneurship, career development, and skill-building opportunities.</p>
+                </div>
+
+                <div class="empowerment-card health-card">
+                    <div class="card-icon">🏥</div>
+                    <h3 class="card-title">Health & Wellness</h3>
+                    <p class="card-description">Comprehensive healthcare resources, mental health support, and wellness programs designed for women.</p>
+                </div>
+
+                <div class="empowerment-card education-card">
+                    <div class="card-icon">📚</div>
+                    <h3 class="card-title">Education & Growth</h3>
+                    <p class="card-description">Learning opportunities, scholarships, and educational resources to unlock your full potential.</p>
+                </div>
+            </div>
+
+            <!-- Success Stories Section -->
+            <section class="success-stories">
+                <h2 class="section-title">Inspiring Success Stories</h2>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <a href="#" onclick="showStory('malala')">Malala Yousafzai - Education Activist</a>
+                    </div>
+                    <div class="story-card">
+                        <a href="#" onclick="showStory('oprah')">Oprah Winfrey - Media Mogul</a>
+                    </div>
+                    <div class="story-card">
+                        <a href="#" onclick="showStory('marie')">Marie Curie - Nobel Laureate</a>
+                    </div>
+                    <div class="story-card">
+                        <a href="#" onclick="showStory('serena')">Serena Williams - Tennis Champion</a>
+                    </div>
+                    <div class="story-card">
+                        <a href="#" onclick="showStory('kalpana')">Kalpana Chawla - Astronaut</a>
+                    </div>
+                    <div class="story-card">
+                        <a href="#" onclick="showStory('frida')">Frida Kahlo - Artist</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EMPOWER HER. Empowering women worldwide. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <!-- Story Modal -->
+    <div id="storyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="storyContent"></div>
+        </div>
+    </div>
+
+    <!-- Import Firebase logic as a module -->
+    <script type="module" src="fire.js"></script>
+
+    <script>
+        // Success Stories functionality
+        const storyModal = document.getElementById('storyModal');
+        const closeBtns = document.getElementsByClassName('close');
+
+        // Close story modal
+        Array.from(closeBtns).forEach(btn => {
+            btn.addEventListener('click', function() {
+                storyModal.style.display = 'none';
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === storyModal) {
+                storyModal.style.display = 'none';
+            }
+        });
+
+        const stories = {
+            malala: {
+                title: "Malala Yousafzai",
+                content: "At just 17, Malala became the youngest Nobel Prize laureate for her advocacy of girls' education. Despite facing life-threatening opposition, she continues to fight for every girl's right to learn."
+            },
+            oprah: {
+                title: "Oprah Winfrey",
+                content: "From poverty to becoming one of the most influential media personalities, Oprah's journey shows the power of resilience, education, and using your voice to uplift others."
+            },
+            marie: {
+                title: "Marie Curie",
+                content: "The first woman to win a Nobel Prize and the only person to win Nobel Prizes in two different sciences. Her groundbreaking research opened doors for women in STEM fields."
+            },
+            serena: {
+                title: "Serena Williams",
+                content: "With 23 Grand Slam singles titles, Serena redefined excellence in tennis while advocating for equal pay and opportunities for women in sports."
+            },
+            kalpana: {
+                title: "Kalpana Chawla",
+                content: "The first Indian-American woman in space, Kalpana's journey from a small town in India to NASA shows that dreams have no boundaries."
+            },
+            frida: {
+                title: "Frida Kahlo",
+                content: "Despite facing physical challenges, Frida became one of the most celebrated artists in history, using her pain to create powerful art that speaks to the human experience."
+            }
+        };
+
+        function showStory(storyKey) {
+            const story = stories[storyKey];
+            const storyContent = document.getElementById('storyContent');
+            storyContent.innerHTML = `
+                <h2>${story.title}</h2>
+                <p style="line-height: 1.8; margin-top: 1rem;">${story.content}</p>
+                <p style="margin-top: 2rem; font-style: italic; opacity: 0.8;">
+                    "Every woman's story is a testament to the power of determination and courage."
+                </p>
+            `;
+            storyModal.style.display = 'block';
+        }
+
+        // Add smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add card click functionality for main empowerment cards
+        document.querySelectorAll('.empowerment-card:not(.sos-card)').forEach(card => {
+            card.addEventListener('click', function() {
+                const cardType = this.classList[1].replace('-card', '');
+                switch(cardType) {
+                    case 'economic':
+                        window.location.href = 'econmydev.html';
+                        break;
+                    case 'health':
+                        window.location.href = 'health.html';
+                        break;
+                    case 'education':
+                        window.location.href = 'education.html';
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

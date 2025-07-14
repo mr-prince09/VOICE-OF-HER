@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpowerHer: Economic Development Resources for Women</title>
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f5f5f5;
+            --dark: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            padding: 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        .resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resource-card h3 {
+            color: var(--secondary);
+            margin-top: 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+        
+        .success-stories {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .story {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .resources {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EmpowerHer</h1>
+        <p>Economic Development Resources for Women</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#funding">Funding</a></li>
+            <li><a href="#training">Training</a></li>
+            <li><a href="#success">Success Stories</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="about">
+            <h2>Empowering Women Through Economic Opportunity</h2>
+            <p>EmpowerHer is dedicated to advancing the economic independence and entrepreneurial success of women worldwide. We provide resources, funding opportunities, mentorship, and training programs designed specifically to address the unique challenges women face in business and career development.</p>
+            <p>Our mission is to create a more equitable economic landscape where women can thrive, innovate, and lead across all industries and sectors.</p>
+        </section>
+        
+        <section id="resources">
+            <h2>Key Resources</h2>
+            <div class="resources">
+                <div class="resource-card">
+                    <h3>Business Planning</h3>
+                    <p>Access templates, guides, and expert advice on creating effective business plans tailored to women entrepreneurs' needs.</p>
+                    <a href="#" class="cta-button">Explore Resources</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Mentorship Network</h3>
+                    <p>Connect with successful women business leaders who provide guidance, support, and valuable industry insights.</p>
+                    <a href="#" class="cta-button">Find a Mentor</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Financial Literacy</h3>
+                    <p>Build essential financial skills through courses on budgeting, investment, business finance, and wealth building.</p>
+                    <a href="#" class="cta-button">Take Courses</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="funding">
+            <h2>Funding Opportunities</h2>
+            <p>Discover a wide range of financing options designed specifically for women entrepreneurs:</p>
+            <ul>
+                <li><strong>Grants for Women-Owned Businesses</strong> - Non-repayable funds offered by government agencies, corporations, and foundations.</li>
+                <li><strong>Microloans</strong> - Small-scale financing with favorable terms for early-stage ventures.</li>
+                <li><strong>Angel Investors</strong> - Connect with investors interested in supporting women-led startups.</li>
+                <li><strong>Venture Capital</strong> - Resources for accessing VC firms with a focus on women founders.</li>
+                <li><strong>Crowdfunding Platforms</strong> - Guidance on running successful campaigns on platforms that support women entrepreneurs.</li>
+            </ul>
+            <p>Our funding database is updated monthly with new opportunities and application deadlines.</p>
+            <a href="#" class="cta-button">Access Funding Database</a>
+        </section>
+        
+        <section id="training">
+            <h2>Skills Development & Training</h2>
+            <div class="resources">
+                <div class="resource-card">
+                    <h3>Digital Skills</h3>
+                    <p>Courses on e-commerce, digital marketing, web development, and using technology to grow your business.</p>
+                    <a href="#" class="cta-button">Start Learning</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Leadership Development</h3>
+                    <p>Programs designed to build confidence, negotiation skills, and effective management techniques.</p>
+                    <a href="#" class="cta-button">Enroll Now</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Industry-Specific Training</h3>
+                    <p>Specialized courses for women in tech, manufacturing, healthcare, retail, and other sectors.</p>
+                    <a href="#" class="cta-button">Find Your Field</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="success">
+            <h2>Success Stories</h2>
+            <div class="success-stories">
+                <div class="story">
+                    <h3>Maria Rodriguez - Tech Entrepreneur</h3>
+                    <p>"After accessing EmpowerHer's resources and securing a microloan, I was able to launch my software company that now employs 15 people. The mentorship I received was invaluable in helping me navigate the male-dominated tech industry."</p>
+                </div>
+                
+                <div class="story">
+                    <h3>Sarah Johnson - Sustainable Fashion</h3>
+                    <p>"The business planning resources and financial literacy courses gave me the confidence to transform my side hustle into a full-time sustainable fashion brand. The connections I made through networking events opened doors I never thought possible."</p>
+                </div>
+                
+                <div class="story">
+                    <h3>Aisha Patel - Healthcare Innovation</h3>
+                    <p>"As a first-generation immigrant, I faced unique challenges in establishing my healthcare consulting practice. EmpowerHer's targeted funding options and culturally sensitive mentorship made all the difference in my entrepreneurial journey."</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your email address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">Area of Interest</label>
+                        <select id="interest">
+                            <option value="">Select an option</option>
+                            <option value="funding">Funding</option>
+                            <option value="mentorship">Mentorship</option>
+                            <option value="training">Training</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="How can we help you?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button">Submit</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 EmpowerHer - Economic Development Resources for Women</p>
+        <div>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Newsletter Signup</a>
+        </div>
+    </footer>
+</body>
+</html>
